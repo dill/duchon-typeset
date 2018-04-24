@@ -7,8 +7,13 @@
 \textclass article
 \begin_preamble
 \setcitestyle{round}
+\setcounter{section}{-1}
 \end_preamble
 \use_default_options true
+\begin_modules
+theorems-ams
+theorems-sec
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -1851,6 +1856,386 @@ status open
 .
 \end_layout
 
+\begin_layout Theorem
+Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a linear subspace of 
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+ such that, if 
+\begin_inset Formula $x\in N$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\langle e^{\prime},x\right\rangle =0\forall e^{\prime}\in M$
+\end_inset
+
+, then 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f^{M}\in X$
+\end_inset
+
+.
+ There exists a unique element 
+\begin_inset Formula $f^{M}$
+\end_inset
+
+ in 
+\begin_inset Formula $X$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $\left\langle e^{\prime},f^{M}\right\rangle =\left\langle e^{\prime},f\right\rangle \forall e^{\prime}\in M$
+\end_inset
+
+, with 
+\begin_inset Formula $\left\Vert f^{M}\right\Vert $
+\end_inset
+
+ minimum.
+\end_layout
+
+\begin_layout Proof
+The set 
+\begin_inset Formula $f+M^{o}\cap X+N$
+\end_inset
+
+ is a nonempty closed affine subspace of 
+\begin_inset Formula $X/N$
+\end_inset
+
+, it has an element of minimum norm which is exactly 
+\begin_inset Formula $f^{M}+N$
+\end_inset
+
+, which in turn contains one element 
+\begin_inset Formula $f^{M}\in f+M^{o}\cap X$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $f^{M}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $\left\langle e^{\prime},f^{M}\right\rangle =\left\langle e^{\prime},f\right\rangle \forall e^{\prime}\in M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Let us suppose that 
+\begin_inset Formula $X$
+\end_inset
+
+ is dense is 
+\begin_inset Formula $E$
+\end_inset
+
+, so that 
+\begin_inset Formula $N^{o}\subset(X/N)^{\prime}$
+\end_inset
+
+; and assume that 
+\begin_inset Formula $M\cap N^{o}$
+\end_inset
+
+ is closed in 
+\begin_inset Formula $(X/N)^{\prime}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\theta$
+\end_inset
+
+ be a reproducing kernel of 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $E$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $f^{M}$
+\end_inset
+
+ coincides with the only 
+\begin_inset Formula $g\in\theta(M\cap N^{o})+N$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $\left\langle e^{\prime},g\right\rangle =\left\langle e^{\prime},f\right\rangle \forall e^{\prime}\in M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $f^{M}+N$
+\end_inset
+
+ is the orthogonal projection of 
+\begin_inset Formula $O$
+\end_inset
+
+ 
+\begin_inset Formula $(\in X/N)$
+\end_inset
+
+ onto 
+\begin_inset Formula $f+M^{o}\cap X+N$
+\end_inset
+
+ and therefore is the only element of 
+\begin_inset Formula $f+M^{o}\cap X+N$
+\end_inset
+
+ belonging to the orthogonal of 
+\begin_inset Formula $M^{o}\cap X+N$
+\end_inset
+
+ (in 
+\begin_inset Formula $X/N$
+\end_inset
+
+ for Hilbert structure), which is the image of 
+\begin_inset Formula $\left(M^{o}\cap X+N\right)^{o}$
+\end_inset
+
+ (orthogonal in 
+\begin_inset Formula $(X/N)^{\prime}$
+\end_inset
+
+) by the canonical isometry from 
+\begin_inset Formula $(X/N)^{\prime}$
+\end_inset
+
+ onto 
+\begin_inset Formula $X/N$
+\end_inset
+
+.
+ But if 
+\begin_inset Formula $M\cap N^{o}$
+\end_inset
+
+ is closed in 
+\begin_inset Formula $(X/N)^{\prime}$
+\end_inset
+
+, 
+\begin_inset Formula $\left(M^{o}\cap X+N\right)^{o}$
+\end_inset
+
+ is exactly 
+\begin_inset Formula $M\cap N^{o}$
+\end_inset
+
+, whose image is 
+\begin_inset Formula $\theta\left(M\cap N^{o}\right)+N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Frequently 
+\begin_inset Formula $M$
+\end_inset
+
+ is finite-dimensional (finitely many data to interpolate) so that 
+\begin_inset Formula $M\cap N^{o}$
+\end_inset
+
+ is automatically closed in 
+\begin_inset Formula $(X/N)^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Applying this to 
+\begin_inset Formula $X=D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ with 
+\begin_inset Formula $N=P_{m-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $E=H_{loc}^{m+s}$
+\end_inset
+
+, 
+\begin_inset Formula $E^{\prime}=H_{comp}^{-m-s}$
+\end_inset
+
+, we get:
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a closed linear subspace of 
+\begin_inset Formula $H_{\bar{\Omega}}^{-m-s}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ (
+\begin_inset Formula $\Omega$
+\end_inset
+
+ bounded), such that if 
+\begin_inset Formula $p\in P_{m-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\langle \mu,p\right\rangle =0\forall\mu\in M$
+\end_inset
+
+ then 
+\begin_inset Formula $p=0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f\in H_{\bar{\Omega}}^{m+s}\left(\Omega\right)$
+\end_inset
+
+.
+ There exists exactly one element 
+\begin_inset Formula $f^{M}\in D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $\left\langle \mu,f^{M}\right\rangle =\left\langle \mu,f\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\forall\mu\in M$
+\end_inset
+
+, with minimum semi-norm 
+\begin_inset Formula $\left\Vert f^{M}\right\Vert _{m,s}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\theta$
+\end_inset
+
+ be a reproducing kernel of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+in 
+\begin_inset Formula $H_{loc}^{m+s}$
+\end_inset
+
+.
+ Then the only 
+\begin_inset Formula $g$
+\end_inset
+
+ of the form 
+\begin_inset Formula $\theta\mu+p$
+\end_inset
+
+ with 
+\begin_inset Formula $\mu\in M\cap P_{m-1}^{o}$
+\end_inset
+
+ 
+\begin_inset Formula $p\in P_{m-1}$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $\left\langle \mu,g\right\rangle =\left\langle \mu,f\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\forall\mu\in M$
+\end_inset
+
+, is 
+\begin_inset Formula $f^{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We just have to check that 
+\begin_inset Formula $M\cap P_{m-1}^{o}$
+\end_inset
+
+ is closed in 
+\begin_inset Formula $\left(D^{-m}\tilde{H}^{s}/P_{m-1}\right)^{\prime}$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $M$
+\end_inset
+
+ is closed in 
+\begin_inset Formula $H_{\bar{\Omega}}^{-m-s}$
+\end_inset
+
+, hence 
+\begin_inset Formula $M\cap N^{o}$
+\end_inset
+
+ is closed in 
+\begin_inset Formula $H_{\bar{\Omega}}^{-m-s}\cap N^{o}$
+\end_inset
+
+, which is exactly the orthogonal, in 
+\begin_inset Formula $\left(D^{-m}\tilde{H}^{s}/P_{m-1}\right)^{\prime}$
+\end_inset
+
+, of the subset of (equivalence classes 
+\begin_inset Formula $\mod P_{m-1}$
+\end_inset
+
+ of) elements in 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ which are zero on 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $M\cap N^{o}$
+\end_inset
+
+ is closed in a closed subset of 
+\begin_inset Formula $\left(D^{-m}\tilde{H}^{s}/P_{m-1}\right)^{\prime}$
+\end_inset
+
+, hence closed itself.
+ All this is useless if 
+\begin_inset Formula $M$
+\end_inset
+
+ is finite-dimensional.
+\end_layout
+
 \begin_layout Section
 Reproducing kernel of 
 \begin_inset Formula $D^{-m}\tilde{H}^{s}$
@@ -1866,6 +2251,390 @@ name "sec:Reproducing-kernel-of"
 
 \end_layout
 
+\begin_layout Theorem
+\begin_inset Formula $\theta:\mu\mapsto\left(2\pi\right)^{-2m}\mu\varodot\mathfrak{F}Pf.\left|\tau\right|^{-2m-2s}$
+\end_inset
+
+ maps 
+\begin_inset Formula $H_{comp}^{-m-s}\cap P_{m-1}^{o}$
+\end_inset
+
+ into 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ and is a reproducing kernel of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ as a semi-Hilbert subspace of 
+\begin_inset Formula $H_{loc}^{m+s}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+ is a Hilbert subspace of 
+\begin_inset Formula $H_{loc}^{m+s}/P_{m-1}$
+\end_inset
+
+ it has a reproducing kernel, say 
+\begin_inset Formula $L$
+\end_inset
+
+, which maps 
+\begin_inset Formula $H_{comp}^{-m-s}\cap P_{m-1}^{o}$
+\end_inset
+
+ (dual space of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+) into 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+ and is characterized by: 
+\begin_inset Formula $L\mu$
+\end_inset
+
+ is the set of distributions 
+\begin_inset Formula $u\in D^{-m}\tilde{H}^{s}$
+\end_inset
+
+satisfying:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{equation}
+\left(2\pi\right)^{2m}\int_{\mathbb{R}^{n}}\left|\tau\right|^{2s}\left(\tau^{m}\hat{u}\right)\left(\tau\right).\bar{\left(\tau^{m}\hat{w}\right)\left(\tau\right)}d\tau=\left\langle \mu,w\right\rangle ,\forall w\in D^{-m}\tilde{H}^{s}\label{eq:starthingo}
+\end{equation}
+
+\end_inset
+
+We first deduce that 
+\begin_inset Formula $\left|2\pi\tau\right|^{2m}\hat{u}=\hat{\mu}\left|\tau\right|^{-2s}$
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(lemma 1)
+\end_layout
+
+\end_inset
+
+.
+ Now it is easily seen that 
+\begin_inset Formula $v=\left(2\pi\right)^{-2m}\mu\odot\mathfrak{F}Pf.\left|\tau\right|^{-2m-2s}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $\left|2\pi\tau\right|^{-2m}\hat{v}=\hat{\mu}\left|\tau\right|^{-2s}$
+\end_inset
+
+, since 
+\begin_inset Formula $\hat{v}=\left(2\pi\right)^{2m}\hat{\mu}Pf.\left|\tau\right|^{-2m-2s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left|2\pi\right|^{2m}Pf.\left|\tau\right|^{-2m-2s}=\left|\tau\right|^{-2s}$
+\end_inset
+
+.
+ On the other hand, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+lemma 2
+\end_layout
+
+\end_inset
+
+ proves 
+\begin_inset Formula $\tau^{\alpha}\hat{v}\in L_{loc}^{1},\forall\left|\alpha\right|=m$
+\end_inset
+
+.
+ So that for any 
+\begin_inset Formula $u\in L\mu$
+\end_inset
+
+ we have 
+\begin_inset Formula $\left|\alpha\right|^{2m}\left(\hat{u}-\hat{v}\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau^{\alpha}\left(\hat{u}-\hat{v}\right)\in L_{loc}^{1},\forall\left|\alpha\right|=m$
+\end_inset
+
+.
+ 
+\begin_inset Formula $Lemma3$
+\end_inset
+
+ then shows that 
+\begin_inset Formula $u-v\in P_{m-1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $v\in L\mu$
+\end_inset
+
+ since 
+\begin_inset Formula $L\mu$
+\end_inset
+
+ is an equivalence class modulo 
+\begin_inset Formula $P_{m-1}$
+\end_inset
+
+.
+ In other words 
+\begin_inset Formula $L\mu=\left(2\pi\right)^{2m}\mu\odot\mathfrak{F}Pf.\left|\tau\right|^{-2m-2s}+P_{m-1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is a reproducing kernel of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\left|2\pi\tau\right|^{2m}\hat{\mu}=\hat{\mu}\left|\tau\right|^{-2s}$
+\end_inset
+
+ if 
+\begin_inset Formula $u\in L\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Conditions 
+\begin_inset Formula $s>-m-\frac{n}{2}$
+\end_inset
+
+ implies 
+\begin_inset Formula $\mathfrak{I}\subset D^{-m}\tilde{H}^{s}$
+\end_inset
+
+, so that we may apply 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:starthingo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ whith 
+\begin_inset Formula $w=\hat{\varphi},\varphi\in\mathfrak{D}$
+\end_inset
+
+, and get 
+\begin_inset Formula $\left(2\pi\right)^{2m}\int\left|\tau\right|^{2s}\left(\tau^{m}\hat{u}\right)\left(\tau\right).\tau^{m}\varphi\left(\tau\right)d\tau=\left\langle \mu,\hat{\varphi}\right\rangle =\left\langle \hat{\mu},\varphi\right\rangle ,\forall\varphi\in\mathfrak{D}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $\left(2\pi\right)^{2m}\left|\tau\right|^{2s}\tau^{m}.\left(\tau^{m}\hat{u}\right)\left(\tau\right).=\hat{\mu}\left(\tau\right)$
+\end_inset
+
+ a.e., hence 
+\begin_inset Formula $\left(2\pi\right)^{2m}\tau^{m}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\left(\tau^{m}\hat{u}\right)\left(\tau\right)=\left|\tau\right|^{-2s}\hat{\mu}\left(\tau\right)$
+\end_inset
+
+ a.e.
+ and 
+\begin_inset Formula $\left(2\pi\tau\right)^{2m}\hat{u}=\hat{\mu\left|\tau\right|^{-2s}}$
+\end_inset
+
+ as distributions.
+\end_layout
+
+\begin_layout Lemma
+If 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a distribution with compact support, orthogonal to 
+\begin_inset Formula $P_{m-1}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\mu\in\mathfrak{E}^{\prime}\cap P_{m-1}^{o}$
+\end_inset
+
+, then 
+\begin_inset Formula $\tau^{\alpha}\hat{\mu}Pf.\left|\tau\right|^{-2m-2s}\in L_{loc}^{1},\forall\left|\alpha\right|=m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+It suffices to show that the 
+\shape italic
+function
+\shape default
+ (in usual sense) 
+\begin_inset Formula $\tau^{\alpha}\hat{\mu}\left(\tau\right)\left|\tau\right|^{-2m-2s}$
+\end_inset
+
+ is locally sunmable.
+ But, since 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is orthogonal to 
+\begin_inset Formula $P_{m-1}$
+\end_inset
+
+, the 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ function 
+\begin_inset Formula $\hat{\mu}$
+\end_inset
+
+ has derivatives of order 
+\begin_inset Formula $\leq m-1$
+\end_inset
+
+ vanishing at 
+\begin_inset Formula $0$
+\end_inset
+
+, so that 
+\begin_inset Formula $\left|\hat{\mu}\left(\tau\right)\right|\leq c\left|\tau\right|^{m}$
+\end_inset
+
+ on a neighbourhood of 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\tau^{\alpha}\hat{\mu}\left(\tau\right)\left|\tau\right|^{-2m-2s}\leq c\left|\tau\right|^{-2s}$
+\end_inset
+
+ on that neighbourhood of 
+\begin_inset Formula $0$
+\end_inset
+
+, and is 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ elsewhere, so is locally summable since 
+\begin_inset Formula $s<\frac{n}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Any tempered distribution 
+\begin_inset Formula $T$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left|\tau\right|^{2m}\hat{T}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau^{\alpha}\hat{T}\in L_{loc}^{1}$
+\end_inset
+
+ is in 
+\begin_inset Formula $P_{m-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $T$
+\end_inset
+
+is supported by 
+\begin_inset Formula ${0}$
+\end_inset
+
+, since 
+\begin_inset Formula $\left|\tau\right|^{2m}$
+\end_inset
+
+ 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\tau^{\alpha}\hat{T}$
+\end_inset
+
+ is also supported by 
+\begin_inset Formula ${0}$
+\end_inset
+
+ and should be in 
+\begin_inset Formula $L_{loc}^{1}$
+\end_inset
+
+ which is possible only if 
+\begin_inset Formula $\tau^{\alpha}\hat{T}=0$
+\end_inset
+
+, and then 
+\begin_inset Formula $D^{\alpha}T=0,\forall\left|\tau\right|=m$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $T\in P_{m-1}$
+\end_inset
+
+.
+ 
+\end_layout
+
 \begin_layout Section
 A general characterization result
 \begin_inset CommandInset label
@@ -1875,6 +2644,303 @@ name "sec:A-general-characterization"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+To be more explicit, we now use formulas giving Fourier transforms of pseudo-fla
+nctions 
+\begin_inset Formula $Pf.\left|\tau\right|^{\lambda}$
+\end_inset
+
+.
+ In general 
+\begin_inset Formula $Pf.\left|\tau\right|^{\lambda}=cPf.\left|t\right|^{-n-\lambda}$
+\end_inset
+
+ except if 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ or 
+\begin_inset Formula $-n-\lambda$
+\end_inset
+
+ is an even positive integer 
+\begin_inset Formula $2k:\mathfrak{F}\left|\tau\right|^{2k}=c\Delta^{k}\delta$
+\end_inset
+
+, 
+\begin_inset Formula $\mathfrak{F}Pf.\left|\tau\right|^{-n-2k}=c\left|t\right|^{2k}\log\left|t\right|+\left|t\right|^{2k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For simplicity, we assume 
+\begin_inset Formula $s>-m$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{F}Pf.\left|\tau\right|^{-2m-2s}$
+\end_inset
+
+ is 
+\begin_inset Formula $c\left|t\right|^{2m+2s-n}\log\left|t\right|+c\left|t\right|^{2m+2s-n}$
+\end_inset
+
+ if 
+\begin_inset Formula $2m+2s-n$
+\end_inset
+
+ is an even positive integer, 
+\begin_inset Formula $c\left|t\right|^{2m+2s-n}$
+\end_inset
+
+ if not.
+ It is easyly seen that, in the first case (
+\begin_inset Formula $2m+2s-n=2k$
+\end_inset
+
+), if 
+\begin_inset Formula $\mu\in P_{m-1}^{o}$
+\end_inset
+
+ then 
+\begin_inset Formula $\mu\odot\left|t\right|^{2m+2s-n}\in P_{m-1}$
+\end_inset
+
+.
+ So that, 
+\shape italic
+putting
+\shape default
+ 
+\begin_inset Formula $K_{\lambda}(t)=\left|t\right|^{\lambda}\log\left|t\right|$
+\end_inset
+
+ 
+\shape italic
+if
+\shape default
+ 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ 
+\shape italic
+is an even positive integer
+\shape default
+ 
+\begin_inset Formula $K_{\lambda}(t)=\left|t\right|^{\lambda}$
+\end_inset
+
+ 
+\shape italic
+otherwise, the mapping
+\shape default
+ 
+\begin_inset Formula $\mu\mapsto\mu\odot K_{2m+2s-n}$
+\end_inset
+
+ 
+\shape italic
+is proportional to a reproducing kernel of
+\shape default
+ 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ 
+\shape italic
+when
+\shape default
+ 
+\begin_inset Formula $m+s>0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we are able to explicit 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+theorem 2.3
+\end_layout
+
+\end_inset
+
+ (in the case 
+\begin_inset Formula $m+s>0$
+\end_inset
+
+, that is, 
+\begin_inset Formula $H_{loc}^{m+s}$
+\end_inset
+
+ is a space of (classes of locally summable) functions):
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a closed linear, subspace of some 
+\begin_inset Formula $H_{\bar{\Omega}}^{-m-s}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ (
+\begin_inset Formula $\Omega$
+\end_inset
+
+ bounded), satisfying: if 
+\begin_inset Formula $p\in P_{m-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\langle \mu,p\right\rangle =0,\forall\mu\in M$
+\end_inset
+
+, then 
+\begin_inset Formula $p=0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f\in H^{m+s}\left(\Omega\right)$
+\end_inset
+
+.
+ Then there exists a unique function 
+\begin_inset Formula $f\in D^{-m}\tilde{H}^{s}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $\left\langle \mu,f^{M}\right\rangle =\left\langle \mu,f\right\rangle \forall\mu\in M$
+\end_inset
+
+, with minimum semi-norm 
+\begin_inset Formula $\left\Vert f^{M}\right\Vert _{m,s}$
+\end_inset
+
+.
+ Moreover, if 
+\begin_inset Formula $g=\nu\odot K_{2m+2s-n}+p$
+\end_inset
+
+ (with 
+\begin_inset Formula $\nu\in M\cap P_{m-1}^{o}$
+\end_inset
+
+ and 
+\begin_inset Formula $p\in P_{m-1}$
+\end_inset
+
+) satisfies 
+\begin_inset Formula $\left\langle \mu,g\right\rangle =\left\langle \mu,f\right\rangle \forall\mu\in M$
+\end_inset
+
+,then 
+\begin_inset Formula $g=f^{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let us now restrict ourselves to the important case where 
+\begin_inset Formula $m+s>\frac{n}{2}$
+\end_inset
+
+, so that 
+\begin_inset Formula $H_{loc}^{m+s}$
+\end_inset
+
+ is a space of continuous functions (Sobolev theorem), and 
+\shape italic
+data are finitely many point values
+\shape default
+.
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a finite subset of 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, containing a 
+\begin_inset Formula $P_{m-1}$
+\end_inset
+
+ - unisolvent subset.
+ Then there exists exactly one function of the form 
+\begin_inset Formula $\sigma\left(t\right)=\sum_{a\in A}\lambda_{a}K_{2m+2s-n}\left(t-a\right)+p\left(t\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $p\in P_{m-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{a\in A}\lambda_{a}q\left(a\right)=0,\forall q\in P_{m-1}$
+\end_inset
+
+, taking prescribed values on 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Moreover,.
+ if 
+\begin_inset Formula $f$
+\end_inset
+
+ is another function taking the same values on 
+\begin_inset Formula $A$
+\end_inset
+
+, one has 
+\begin_inset Formula $\left\Vert f\right\Vert _{m,s}\geq\left\Vert \sigma\right\Vert _{m,s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Actually, 
+\begin_inset Formula $\sum_{a\in A}\lambda_{a}K_{2m+2s-n}\left(t-a\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\left(\sum_{a\in A}\lambda_{a}\delta_{a}\odot K_{2m+2s-n}\right)\left(t\right)$
+\end_inset
+
+ Existence of a function 
+\begin_inset Formula $f\in D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ taking prescribed values on 
+\begin_inset Formula $A$
+\end_inset
+
+ (finite) is obvious: 
+\begin_inset Formula $f$
+\end_inset
+
+ nmay even be chosen in 
+\begin_inset Formula $\mathfrak{D}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
