@@ -2954,6 +2954,166 @@ name "sec:Examples"
 
 \end_layout
 
+\begin_layout Subsection
+Pseudo-polynomial splines
+\end_layout
+
+\begin_layout Standard
+We put 
+\begin_inset Formula $s=\frac{n-1}{2}$
+\end_inset
+
+ and consider a finite set 
+\begin_inset Formula $A\subset\mathbb{R}^{n}$
+\end_inset
+
+ containing some 
+\begin_inset Formula $P_{m-1}$
+\end_inset
+
+ - unisolvent subset.
+ Then there exists exactly one function of the form 
+\begin_inset Formula $\sigma\left(t\right)=\sum_{a\in A}\lambda_{a}\left|t-a\right|^{2m-1}+p\left(t\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $p\in P_{m-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{a\in A}\lambda_{a}q\left(a\right)=0,\forall q\in P_{m-1}$
+\end_inset
+
+, taking prescribed values on 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ For all 
+\begin_inset Formula $f$
+\end_inset
+
+ taking the same values on 
+\begin_inset Formula $A$
+\end_inset
+
+ one has 
+\begin_inset Formula $\left\Vert f\right\Vert _{m,\frac{n-1}{2}}\geq\left\Vert \sigma\right\Vert _{m,\frac{n-1}{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $m=1$
+\end_inset
+
+ we get 
+\shape italic
+multi-conic functions
+\shape default
+ 
+\begin_inset Formula $\sum\lambda_{a}\left|t-a\right|+C$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum\lambda_{a}=0$
+\end_inset
+
+, and the set 
+\begin_inset Formula $A$
+\end_inset
+
+ must only contain two distinct points.
+ The functional minimized is 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\left|\tau\right|^{n-1}\left|\mathfrak{F}Dv\left(\tau\right)\right|^{2}d\tau$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $m=2$
+\end_inset
+
+ we get
+\shape italic
+ pseudo-cubic splines
+\shape default
+, if 
+\begin_inset Formula $A$
+\end_inset
+
+ is not contained in a hyperplane (a line if 
+\begin_inset Formula $n=2$
+\end_inset
+
+): functions of the form 
+\begin_inset Formula $\sum\lambda_{a}\left|t-a\right|^{3}+\alpha t+\beta$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum\lambda_{a}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum\lambda_{a}a=0$
+\end_inset
+
+.
+ Coefficients (
+\begin_inset Formula $\lambda_{a};a\in A$
+\end_inset
+
+) and 
+\begin_inset Formula $\alpha_{1,}\alpha_{2},\beta$
+\end_inset
+
+ may be computed from the linear system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+\sum_{a\in A}\left|a-b\right|^{3}\lambda_{a}+b_{1}\alpha_{1}+b_{2}\alpha_{2}+\beta=f(b) & (b\in A)\\
+\sum_{a\in A}\lambda_{a}a_{1}=0\\
+\sum_{a\in A}\lambda_{a}a_{2}=0\\
+\sum_{a\in A}\lambda_{a}=0
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We notice that, for 
+\begin_inset Formula $n=1$
+\end_inset
+
+, we get simply polynomial splines: polynomials of degree 
+\begin_inset Formula $\leq2m-1$
+\end_inset
+
+ on intervals, 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+, and degenerating to polynoraials of degree 
+\begin_inset Formula $\leq m-1$
+\end_inset
+
+ at both ends (thanks to conditions 
+\begin_inset Formula $\sum\lambda_{a}a^{k}=0,\ldots m-1$
+\end_inset
+
+).
+\end_layout
+
 \begin_layout Section
 Convergence in 
 \begin_inset Formula $H^{m+s}(\Omega)$
