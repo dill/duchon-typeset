@@ -1,0 +1,1907 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\setcitestyle{round}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Spline mimimizing rotation-invariant semi-norms in Sobolev spaces
+\end_layout
+
+\begin_layout Author
+Jean Duchon
+\end_layout
+
+\begin_layout Address
+Université Scientifique et Médicale, Laboratoire de Mathématiques Appliquées,
+ B.P.
+ 53, 38041, Grenoble, France
+\end_layout
+
+\begin_layout Abstract
+We define a family of semi-norms 
+\begin_inset Formula $\left\Vert u\right\Vert _{m,s}=\left(\int_{\mathbb{R}^{n}}\left|\tau\right|^{2s}\left|\mathfrak{F}D^{m}u(\tau)\right|^{2}d\tau\right)^{1/2}$
+\end_inset
+
+.
+ Minimizing such semi-norms, siubject to some interpolating conditions,
+ leads to function of very simple forms, providing interpolation methods
+ that: 1) preserve polynomials of degree 
+\begin_inset Formula $\leq m-1$
+\end_inset
+
+; 2) commute with similarities as well as translations and rotations of
+ 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+; and 3) converge in Sobolev spaces 
+\begin_inset Formula $H^{m+s}(\Omega)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Typical examples of such splines are: 
+\begin_inset Quotes eld
+\end_inset
+
+thin plate
+\begin_inset Quotes erd
+\end_inset
+
+ functions (
+\begin_inset Formula $\sum_{a\in A}\lambda_{a}\left|t-a\right|^{2}\log\left|t-a\right|+\alpha t+\beta$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum\lambda_{a}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\sum\lambda_{a}a=0$
+\end_inset
+
+), 
+\begin_inset Quotes eld
+\end_inset
+
+multi-conic
+\begin_inset Quotes erd
+\end_inset
+
+ functions (
+\begin_inset Formula $\sum\lambda_{a}\left|t-a\right|+C$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum\lambda_{a}=0$
+\end_inset
+
+), pseudo-cubic splines (
+\begin_inset Formula $\sum\lambda_{a}\left|t-a\right|^{3}+\alpha t+\beta$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum\lambda_{a}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\sum\lambda_{a}a=0$
+\end_inset
+
+), as well as usual polynomial splines in one dimension.
+ In general, data functional are only supposed to be distributions with
+ compact supports, belonging to 
+\begin_inset Formula $H^{-m-s}(\mathbb{R}^{n})$
+\end_inset
+
+; there may be infinitely many of them.
+ Splines are then expressed as convolutions 
+\begin_inset Formula $\mu\varodot\left|t\right|^{2m+2s-n}$
+\end_inset
+
+ (or 
+\begin_inset Formula $\mu\varodot\left|t\right|^{2m+2s-n}\log\left|t\right|$
+\end_inset
+
+) + polynomials.
+\end_layout
+
+\begin_layout Section
+Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Splines in more than one dimension are usually constructed from one-dimensional
+ ones, via tensor products.
+ We follow here another point of view (more analogous to the physical interpreta
+tion of elementary cubic splines as equilibrium positions of a beam) developed
+ by 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+M.
+ ATTEIA [1][2][3]
+\end_layout
+
+\end_inset
+
+ : his splines (minimizing 
+\begin_inset Formula $\int_{\Omega}\left|D^{2}v\right|^{2}$
+\end_inset
+
+, a functional similar to the bending energy of a thin plate) are uneasy
+ to compute, because their characterization involves a kernel given by series.
+ But things are much simpler if we replace 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ by the whole plane 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+, as is shown in 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[5] 
+\end_layout
+
+\end_inset
+
+(where present extensions are announced).
+ This leads to what we call 
+\begin_inset Quotes eld
+\end_inset
+
+thin plate
+\begin_inset Quotes erd
+\end_inset
+
+ functions in 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ (engineers say 
+\begin_inset Quotes eld
+\end_inset
+
+surface splines
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[6]
+\end_layout
+
+\end_inset
+
+).
+ Of course, it is possible to minimize 
+\begin_inset Formula $\int\left|D^{m}v\right|^{2}$
+\end_inset
+
+instead of 
+\begin_inset Formula $\int\left|D^{2}v\right|^{2}$
+\end_inset
+
+, and deal with 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ (with some restriction: 
+\begin_inset Formula $m>\frac{n}{2}$
+\end_inset
+
+, if point values are used).
+\end_layout
+
+\begin_layout Standard
+We notice that these functionals 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\left|D^{m}v\right|^{2}$
+\end_inset
+
+are invariant through translations and rotations.
+ Moreover, if a similarity 
+\begin_inset Formula $t\rightarrow\lambda t$
+\end_inset
+
+ is applied to 
+\begin_inset Formula $v$
+\end_inset
+
+, they are multiplied by some power of 
+\begin_inset Formula $\left|\lambda\right|$
+\end_inset
+
+.
+ Thus, corresponding interpolation methods will 
+\shape italic
+commute with similarities
+\shape default
+: interpolating on a contracted set of points 
+\begin_inset Formula $\lambda A$
+\end_inset
+
+ gives the same result as interpolating on 
+\begin_inset Formula $A$
+\end_inset
+
+ (with same values) and then applying contraction 
+\begin_inset Formula $t\rightarrow\lambda t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now, since Fourier transform is isometric on 
+\begin_inset Formula $L^{2}(\mathbb{R}^{n})$
+\end_inset
+
+, we may write 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\left|D^{m}v(t)\right|^{2}dt=\int_{\mathbb{R}^{n}}\left|\mathfrak{F}D^{m}v(\tau)\right|^{2}d\tau$
+\end_inset
+
+.
+ A natural idea, to get other interpolation methods, would be to introduce
+ a weighting function 
+\begin_inset Formula $w$
+\end_inset
+
+ and minimize 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}w(\tau)\left|\mathfrak{F}D^{m}v(\tau)\right|^{2}d\tau$
+\end_inset
+
+.
+ In view of the above invariance properties, it is natural to put 
+\begin_inset Formula $w(\tau)=\left|\tau\right|^{\theta}$
+\end_inset
+
+ and try to minimize 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\left|\tau\right|^{\theta}\left|\mathfrak{F}D^{m}v(\tau)\right|^{2}d\tau$
+\end_inset
+
+, a functional which is invariant through translations and rotations, and
+ is multiplied by a constant if the variable 
+\begin_inset Formula $t$
+\end_inset
+
+ is changed into 
+\begin_inset Formula $\lambda t$
+\end_inset
+
+.
+ This is actually possible (at least if 
+\begin_inset Formula $-2m-n<0<n$
+\end_inset
+
+ and 
+\begin_inset Formula $2m+\theta$
+\end_inset
+
+ is sufficiently large, depending on which kind of data are used), in a
+ precise sense, as we shall see.
+\end_layout
+
+\begin_layout Standard
+We first introduce some 
+\begin_inset Quotes eld
+\end_inset
+
+Sobolev-type
+\begin_inset Quotes erd
+\end_inset
+
+ spaces such as 
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+, 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H_{loc}^{m+s}$
+\end_inset
+
+, 
+\begin_inset Formula $H_{comp}^{-m-s}$
+\end_inset
+
+, and compare them.
+ Central space is 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+ with Hilbert structure.
+ Its dual contains 
+\begin_inset Formula $H_{comp}^{-m-s}\cap P_{m-1}^{o}$
+\end_inset
+
+ as a dense subset (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Functional-spaces"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Existence-and-uniqueness"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we prove existence and uniqueness for interpolation problems, and abstract
+ characterization using reproducing kernels of semi-Hilbert spaces.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Reproducing-kernel-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is the crucial one.
+ We compute the reproducing kernel of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+ in 
+\begin_inset Formula $H_{loc}^{m+s}/P_{m+1}$
+\end_inset
+
+, i.e.
+ the natural isometric mapping from 
+\begin_inset Formula $H_{comp}^{-m-s}\cap P_{m-1}^{o}$
+\end_inset
+
+, embedded in 
+\begin_inset Formula $(D^{-m}\tilde{H}^{s}/P_{m-1})$
+\end_inset
+
+ into 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:A-general-characterization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ summarizes our main result (theorems 4 and 4 bis).
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Examples"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we apply it to various examples.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Convergence-in"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is concerned with convergence in Sobolev space 
+\begin_inset Formula $H^{m+s}(\Omega)$
+\end_inset
+
+ (
+\begin_inset Formula $\Omega$
+\end_inset
+
+ bounded) for an interpolated function 
+\begin_inset Formula $f\in H^{m+s}(\Omega)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For brevity, we use classical or natural notations without explicit statement.
+ Moreover, some familiarity with distributions is assumed (convolution,
+ derivation, Fourier transform, multiplication with 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ functions, and their relations; correspondence between locally summble
+ functions and distributions, etc.; standard reference is 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[9]
+\end_layout
+
+\end_inset
+
+).
+ 
+\begin_inset Formula $D^{m}v(t)$
+\end_inset
+
+ is the 
+\begin_inset Formula $n^{m}$
+\end_inset
+
+-tuple of partial derivatives (
+\begin_inset Formula $D_{i_{1}}\ldots D_{i_{m}}v(t);i_{1},\ldots,i_{m}=1,\ldots,n$
+\end_inset
+
+), with Euclidian norm 
+\begin_inset Formula $\left(\sum\left|D^{m}v(t)\right|=\left|D_{i_{1}}\ldots D_{i_{m}}v(t)\right|^{2}\right)^{1/2}$
+\end_inset
+
+.
+ Pseudo-functions 
+\begin_inset Formula $Pf.\left|\tau\right|^{\theta}$
+\end_inset
+
+ are to be found in 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[9], P.
+ 44
+\end_layout
+
+\end_inset
+
+ and their Fourier transforms 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+p.
+ 257
+\end_layout
+
+\end_inset
+
+.
+ Fourier transform is 
+\begin_inset Formula $\mathfrak{F}$
+\end_inset
+
+ or 
+\begin_inset Formula $\hat{}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The letter 
+\begin_inset Formula $c$
+\end_inset
+
+ is used to denote various constants, to avoid useless complication.
+ 
+\end_layout
+
+\begin_layout Section
+Functional spaces
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Functional-spaces"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sobolev spaces 
+\begin_inset Formula $H^{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H_{loc}^{s}$
+\end_inset
+
+, 
+\begin_inset Formula $H_{comp}^{-s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For any real 
+\begin_inset Formula $s$
+\end_inset
+
+, 
+\begin_inset Formula $H^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ is the set of tempered distributions 
+\begin_inset Formula $u$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ whose Fourier transform 
+\begin_inset Formula $\hat{u}$
+\end_inset
+
+ is a (locally summable) function such that 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\left(1+\left|\tau\right|^{2}\right)^{s}\left|\hat{u}(\tau)\right|^{2}d\tau<\infty$
+\end_inset
+
+.
+ In other words 
+\begin_inset Formula $H^{s}=\mathfrak{F}\left(1+\left|\tau\right|^{2}\right)^{-s/2}L^{2}$
+\end_inset
+
+.
+ It is a Hilbert space.
+ Its dual is naturally identified with 
+\begin_inset Formula $H^{-s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ When 
+\begin_inset Formula $s$
+\end_inset
+
+ is a positive integer, 
+\begin_inset Formula $H^{s}(\mathbb{R}^{n})=\left\{ u\in L^{2}(\mathbb{R}^{n});D^{\alpha}u\in L^{2}(\mathbb{R}^{n}),\forall\left|\alpha\right|\leq s\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $K$
+\end_inset
+
+ is a closed subset of 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $H_{K}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ is the set of distributions 
+\begin_inset Formula $\in H^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ whose support is contained in 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ 
+\begin_inset Formula $H_{K}^{s}$
+\end_inset
+
+ is a closed linear subspace of 
+\begin_inset Formula $H^{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is an open subset of 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $H^{s}(\Omega)$
+\end_inset
+
+ is the set of restrictions, to 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, of distributions
+\begin_inset Formula $\in H^{s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ It is isomorphic to the quotient space 
+\begin_inset Formula $H^{s}(\mathbb{R}^{n})/H_{\Omega^{c}}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ hence a Hilbert space too.
+ Its dual is naturally identified with 
+\begin_inset Formula $H_{\bar{\Omega}}^{-s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded and sufficiently regular (e.g.
+ 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ satisfies some 
+\begin_inset Quotes eld
+\end_inset
+
+uniform cone
+\begin_inset Quotes erd
+\end_inset
+
+ condition) then (for non integer 
+\begin_inset Formula $s>0$
+\end_inset
+
+) 
+\begin_inset Formula $H^{s}(\Omega)$
+\end_inset
+
+ is the set of distributions 
+\begin_inset Formula $u$
+\end_inset
+
+ on 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ whose derivatives of order 
+\begin_inset Formula $[s]$
+\end_inset
+
+ (integralpart of 
+\begin_inset Formula $s$
+\end_inset
+
+) are in 
+\begin_inset Formula $L^{2}(\Omega)$
+\end_inset
+
+, with
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\iint_{\Omega\times\Omega}\frac{\left|D^{\left[s\right]}u(t)-D^{\left[s\right]}u(t^{\prime})\right|^{2}}{\left|t-t^{\prime}\right|^{n+2(s-\left[s\right])}}dtdt^{\prime}<\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For integer 
+\begin_inset Formula $s\geq0$
+\end_inset
+
+ it suffices that 
+\begin_inset Formula $D^{\alpha}u\in L^{2}(\Omega),\forall\left|\alpha\right|=s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now 
+\begin_inset Formula $H_{loc}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ is the set of distributiorson 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ whose restriction to any bounded open set 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is in 
+\begin_inset Formula $H^{s}(\Omega)$
+\end_inset
+
+.
+ Of course 
+\begin_inset Formula $C^{k}\subset H_{loc}^{s}$
+\end_inset
+
+ for integer 
+\begin_inset Formula $k\geq s$
+\end_inset
+
+.
+ On the other hand, Sobolev embedding theorems assert that 
+\begin_inset Formula $H_{loc}^{s}(\mathbb{R}^{n})\subset C^{k}$
+\end_inset
+
+ for 
+\begin_inset Formula $s>k+\frac{n}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H_{loc}^{s}$
+\end_inset
+
+ may be equipped with a Fréchet space structure: putting 
+\begin_inset Formula $B_{N}=$
+\end_inset
+
+ the open ball 
+\begin_inset Formula ${\left|t\right|<N}$
+\end_inset
+
+, one defines a countable family of semi-norms 
+\begin_inset Formula $u\mapsto$
+\end_inset
+
+ norm of 
+\begin_inset Formula $u_{|B_{N}}$
+\end_inset
+
+ in 
+\begin_inset Formula $H^{s}(B_{N})$
+\end_inset
+
+.
+ It is reflexive, and its dual is naturally identified with 
+\begin_inset Formula $H_{comp}^{-s}(\mathbb{R}^{n})$
+\end_inset
+
+, the union of 
+\begin_inset Formula $H_{\bar{B}_{N}}^{-s}(\mathbb{R}^{n})$
+\end_inset
+
+, equipped with the topology of (strict) inductive limit of this countable
+ family of Hilbert spaces.
+\end_layout
+
+\begin_layout Standard
+All previous norms could have been replaced by equivalent ones, they do
+ not play a role by themselves in our problem.
+ We now come to definig spaces 
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ ,whose semi-norms 
+\begin_inset Formula $\left\Vert .\right\Vert _{m,s}$
+\end_inset
+
+ are fundamental.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+, 
+\begin_inset Formula $s<\frac{n}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We put 
+\begin_inset Formula $\tilde{H}^{s}(\mathbb{R}^{n})=\left\{ u\in\mathfrak{I}^{\prime}(\mathbb{R}^{n});\hat{u}\in L_{loc}^{1},\int_{\mathbb{R}^{n}}\left|\tau\right|^{2s}\left|\hat{u}(\tau)\right|^{2}d\tau<\infty\right\} $
+\end_inset
+
+.
+ We equip it with norm 
+\begin_inset Formula $\left\Vert u\right\Vert _{0,s}=\left(\int_{\mathbb{R}^{n}}\left|\tau\right|^{2s}\left|\hat{u}(\tau)\right|^{2}d\tau\right)^{1/2}$
+\end_inset
+
+}.
+ 
+\begin_inset Formula $\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ 
+\shape italic
+is a Hilbert space
+\shape default
+ if (and only if) 
+\begin_inset Formula $s<\frac{n}{2}$
+\end_inset
+
+: for 
+\begin_inset Formula $f\in L^{2}(\mathbb{R}^{n})$
+\end_inset
+
+, the function 
+\begin_inset Formula $\left|\tau\right|^{-s}f(\tau)$
+\end_inset
+
+ is locally summable, since 
+\begin_inset Formula $\int_{K}\left|\tau\right|^{-s}\left|f(\tau)\right|d\tau\leq\left(\int_{K}\left|\tau\right|^{-2s}\right)^{1/2}\left(\int_{K}\left|f(\tau)\right|^{2}d\tau\right)^{1/2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left|\tau\right|^{\lambda}$
+\end_inset
+
+ is locally sunnmble if (and only if) 
+\begin_inset Formula $\lambda>-n$
+\end_inset
+
+; therefore 
+\begin_inset Formula $\left|\tau\right|^{-s}f$
+\end_inset
+
+ defines a distribution, easily seen to be tempered, so that 
+\begin_inset Formula $f\mapsto\mathfrak{F}\left(\left|\tau\right|^{-s}f\right)$
+\end_inset
+
+ is an isometry from 
+\begin_inset Formula $L^{2}(\mathbb{R}^{n})$
+\end_inset
+
+ onto 
+\begin_inset Formula $\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ Moreover if 
+\begin_inset Formula $f_{j}\rightarrow0$
+\end_inset
+
+ in 
+\begin_inset Formula $L^{2}$
+\end_inset
+
+, one can prove that 
+\begin_inset Formula $\left|\tau\right|^{-s}f_{j}\rightarrow0$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{I}^{\prime}$
+\end_inset
+
+ (it suffices to show that 
+\begin_inset Formula $\int\left|\tau\right|^{-s}f_{j}\left(\tau\right)\varphi\left(\tau\right)d\tau\rightarrow0$
+\end_inset
+
+ for any 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ function 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ rapidly decreasing at 
+\begin_inset Formula $\infty$
+\end_inset
+
+).
+ This implies that inclusion 
+\begin_inset Formula $\tilde{H}^{s}\curvearrowleft\mathfrak{I}^{\prime}$
+\end_inset
+
+ (a fortiori 
+\begin_inset Formula $\tilde{H}^{s}\curvearrowleft\mathfrak{D}^{\prime}$
+\end_inset
+
+) is continuous, or that 
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+ 
+\shape italic
+is a Hilbert subspace of
+\shape default
+ 
+\begin_inset Formula $\mathfrak{D}^{\prime}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We might even prove that, for 
+\begin_inset Formula $-\frac{n}{2}<s<\frac{n}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+ is a 
+\shape italic
+normal
+\shape default
+ subspace of 
+\begin_inset Formula $\mathfrak{D}^{\prime}$
+\end_inset
+
+ (i.e.
+ contains 
+\begin_inset Formula $\mathfrak{I}$
+\end_inset
+
+ as a dense subspace) with dual 
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(Some of these spaces are known and used in other fields.
+ For example, 
+\begin_inset Formula $\tilde{H}^{-1}\left(\mathbb{R}^{3}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{H}^{1}\left(\mathbb{R}^{3}\right)$
+\end_inset
+
+ are respectively spaces of charges and potentials of finite energy, in
+ the theory of Newtonian potentials in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ See 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[10], §11
+\end_layout
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+From definitions, it is obvious that 
+\begin_inset Formula $H^{s}(\mathbb{R}^{n})\subset\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ if 
+\begin_inset Formula $s>0$
+\end_inset
+
+, the converse if 
+\begin_inset Formula $s<0$
+\end_inset
+
+ (and 
+\begin_inset Formula $\tilde{H}^{o}=H^{o}=L^{2}$
+\end_inset
+
+).
+ In general 
+\begin_inset Formula $H^{s}(\mathbb{R}^{n})\neq\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ (
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+ is not contained in 
+\begin_inset Formula $L^{2}$
+\end_inset
+
+, for 
+\begin_inset Formula $s>0$
+\end_inset
+
+, while 
+\begin_inset Formula $H^{s}\subset L^{2}$
+\end_inset
+
+).
+ But (at least for 
+\begin_inset Formula $-\frac{n}{2}<s<\frac{n}{2}$
+\end_inset
+
+) 
+\shape italic
+equality holds on bounded subsets, as we now see
+\shape default
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $H^{s}(\Omega)=\tilde{H}^{s}(\Omega)$
+\end_inset
+
+, if 
+\begin_inset Formula $-\frac{n}{2}<s<\frac{n}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course, 
+\begin_inset Formula $H^{s}(\Omega)$
+\end_inset
+
+ is the set of restrictions, to 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ (bounded), of elements of 
+\begin_inset Formula $\tilde{H}^{s}(\Omega)$
+\end_inset
+
+, with corresponding Hilbert structure.
+ In fact, we can prove that any 
+\begin_inset Formula $u\in\tilde{H}^{s}(\Omega)$
+\end_inset
+
+ (
+\begin_inset Formula $s>0$
+\end_inset
+
+) is sum of 
+\begin_inset Formula $u_{1}\in H^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ and a 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ function 
+\begin_inset Formula $u_{2}$
+\end_inset
+
+.
+ We first note that 
+\begin_inset Formula $\left|\tau\right|^{2s}\leq\left(1+\left|\tau\right|^{2}\right)^{s}\leq2\left|\tau\right|^{2s}$
+\end_inset
+
+ except for 
+\begin_inset Formula $\tau\in$
+\end_inset
+
+ some ball 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Now for 
+\begin_inset Formula $u\in\tilde{H}^{s}$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{u}$
+\end_inset
+
+ is a function.
+ We write it as 
+\begin_inset Formula $v_{1}+v_{2}$
+\end_inset
+
+ where 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ coincides with 
+\begin_inset Formula $\hat{u}$
+\end_inset
+
+ a.e.
+ on 
+\begin_inset Formula $B$
+\end_inset
+
+ and is zero outside, 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\left(1+\left|\tau\right|^{2}\right)^{s}\left|v_{1}\left(\tau\right)\right|^{2}d\tau=\int_{B^{C}}\left(1+\left|\tau\right|^{2}\right)^{s}\left|v_{1}\left(\tau\right)\right|^{2}d\tau\leq\int_{B^{C}}\left|\tau\right|^{2s}\left|v_{1}\left(\tau\right)\right|^{2}d\tau<\infty$
+\end_inset
+
+, so that its inverse Fourier transform 
+\begin_inset Formula $u_{1}\in H^{s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ On the other hand, 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ has compact support, hence its (inverse) Fourier transform 
+\begin_inset Formula $u_{2}$
+\end_inset
+
+ is a 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ function (in fact, an 
+\begin_inset Quotes eld
+\end_inset
+
+entire function of exponential type
+\begin_inset Quotes erd
+\end_inset
+
+, moreover 
+\begin_inset Formula $\rightarrow0$
+\end_inset
+
+ at 
+\begin_inset Formula $\infty$
+\end_inset
+
+ since 
+\begin_inset Formula $v_{2}\in L^{1}$
+\end_inset
+
+).
+ Case 
+\begin_inset Formula $s<0$
+\end_inset
+
+ is exactly similar: we prove 
+\begin_inset Formula $H^{s}\subset\tilde{H}^{s}+C^{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We have already seen that 
+\begin_inset Formula $C^{\infty}\subset H_{loc}^{s}$
+\end_inset
+
+, so that 
+\begin_inset Formula $\tilde{H}^{s}(\Omega)=H^{s}(\Omega)$
+\end_inset
+
+ if 
+\begin_inset Formula $s>0$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $s<0$
+\end_inset
+
+ we must prove that 
+\begin_inset Formula $C^{\infty}\subset\tilde{H}_{loc}^{s}$
+\end_inset
+
+; 
+\shape italic
+but for
+\shape default
+ 
+\begin_inset Formula $s>\frac{n}{2}$
+\end_inset
+
+ we have 
+\begin_inset Formula $\mathfrak{D}\subset\tilde{H}^{s}$
+\end_inset
+
+, which gives the result.
+ So in general 
+\begin_inset Formula $\tilde{H}^{s}(\Omega)=H^{s}(\Omega)$
+\end_inset
+
+ for 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ bounded, whenever 
+\begin_inset Formula $-\frac{n}{2}<s<\frac{n}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Inclusion 
+\begin_inset Formula $H^{s}(\Omega)\curvearrowleft\tilde{H}^{s}(\Omega)$
+\end_inset
+
+ for 
+\begin_inset Formula $s>0$
+\end_inset
+
+ (
+\begin_inset Formula $\tilde{H}^{s}(\Omega)\curvearrowleft H^{s}(\Omega)$
+\end_inset
+
+ for 
+\begin_inset Formula $s<0$
+\end_inset
+
+) is continuous, so that the two Hilbert structures induced on 
+\begin_inset Formula $\tilde{H}^{s}(\Omega)=H^{s}(\Omega)$
+\end_inset
+
+ are comparable, hence equivalent, from one of Banach's theorems.
+\end_layout
+
+\begin_layout Subsection
+Semi-Hilbert spaces 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We put 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}=\left\{ u\in\mathfrak{D}^{\prime}(\mathbb{R}^{n});D^{\alpha}u\in\tilde{H}^{s}(\mathbb{R}^{n}),\forall\left|\alpha\right|=m\right\} $
+\end_inset
+
+, equipped with natural semi-norm 
+\begin_inset Formula $\left\Vert u\right\Vert _{m,s}=\left(\int_{\mathbb{R}^{n}}\left|\tau\right|^{2s}\left|\mathfrak{F}D^{m}u(\tau)\right|^{2}d\tau\right)^{1/2}$
+\end_inset
+
+.
+ We also consider the quotient space 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+ with corresponding norm.
+ These are 
+\shape italic
+spaces of Beppo Levi type
+\shape default
+ (see 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[4]
+\end_layout
+
+\end_inset
+
+, where these spaces would be denoted 
+\begin_inset Formula $BL_{m}\left(\tilde{H}^{s}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $BL_{m}^{.}\left(\tilde{H}^{s}\right)$
+\end_inset
+
+ respectively): since 
+\begin_inset Formula $\tilde{H}^{s}$
+\end_inset
+
+ is a Hilbert subspace of 
+\begin_inset Formula $\mathfrak{D}^{\prime}$
+\end_inset
+
+, 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}$
+\end_inset
+
+ is a Hilbert subspace of 
+\begin_inset Formula $\mathfrak{D}^{\prime}/P_{m-1}$
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ is a semi-Hilbert subspace of 
+\begin_inset Formula $\mathfrak{D}^{\prime}$
+\end_inset
+
+, see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Existence-and-uniqueness"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ In fact, since 
+\begin_inset Formula $\tilde{H}^{s}\subset\mathfrak{I}^{\prime}$
+\end_inset
+
+, and a distribution whose derivatives are tempered is tempered, we have
+ 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}\subset\mathfrak{I}^{\prime}$
+\end_inset
+
+ , hence 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}/P_{m-1}\subset\mathfrak{I}^{\prime}/P_{m-1}$
+\end_inset
+
+ and the closed graph theorem shows that this inclusion is continuous.
+ So
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ is even a semi-Hilbert subspace of 
+\begin_inset Formula $\mathfrak{I}^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We now come to comparing 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+ with
+\begin_inset Formula $H^{m+s}$
+\end_inset
+
+ .
+ For 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ bounded we have :
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Formula $\left(D^{-m}\tilde{H}^{s}\right)\left(\Omega\right)=H^{m+s}\left(\Omega\right)$
+\end_inset
+
+, if 
+\begin_inset Formula $-m-\frac{n}{2}<s<\frac{n}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first prove that any 
+\begin_inset Formula $u\in H^{m+s}\left(\Omega\right)$
+\end_inset
+
+ extends to an element of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ We know that 
+\begin_inset Formula $u$
+\end_inset
+
+ extends to some 
+\begin_inset Formula $Pu\in H^{m+s}(\mathbb{R}^{n})$
+\end_inset
+
+ with compact support.
+ Then 
+\begin_inset Formula $\hat{Pu}$
+\end_inset
+
+ is 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ and we can easily see that 
+\begin_inset Formula $\int\left|\tau\right|^{2s}\left|\tau^{\alpha}\hat{Pu}(\tau)\right|^{2}d\tau<\infty$
+\end_inset
+
+, 
+\begin_inset Formula $\left|\alpha\right|=m$
+\end_inset
+
+, since 
+\begin_inset Formula $\left|\tau^{\alpha}\right|^{2}\leq\left|\tau\right|^{2m}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left|\tau\right|^{2m+2s}$
+\end_inset
+
+ is locally summble (since 
+\begin_inset Formula $2m+2s>-n$
+\end_inset
+
+) ,and 
+\begin_inset Formula $\left|\tau\right|^{2m+2s}\leq2\left(1+\left|\tau\right|^{2}\right)^{m+s}$
+\end_inset
+
+ outside some ball.
+ Thus 
+\begin_inset Formula $H^{m+s}\left(\Omega\right)\subset\left(D^{-m}\tilde{H}^{s}\right)\left(\Omega\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Conversely, we may write 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}\left(\Omega\right)\subset D^{-m}\left(\tilde{H^{s}}\right)\left(\Omega\right)$
+\end_inset
+
+, with obvious meaning; on the other hand, 
+\begin_inset Formula $\tilde{H}^{s}\left(\Omega\right)$
+\end_inset
+
+ is always contained in 
+\begin_inset Formula $H^{s}(\Omega)$
+\end_inset
+
+ for 
+\begin_inset Formula $s<\frac{n}{2}$
+\end_inset
+
+; and it is known that 
+\begin_inset Formula $D^{-m}(H^{s}\left(\Omega\right))=H^{m+s}\left(\Omega\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+This proves that 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}(\mathbb{R}^{n})\subset H_{loc}^{m+s}(\mathbb{R}^{n})$
+\end_inset
+
+, hence 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}(\mathbb{R}^{n})/P_{m-1}\subset H_{loc}^{m+s}(\mathbb{R}^{n})/P_{m-1}$
+\end_inset
+
+, and the closed graph theorem tells us this inclusion is continuous.
+ Thus 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}(\mathbb{R}^{n})$
+\end_inset
+
+ 
+\shape italic
+is a (dense) semi-Hilbert subspace of
+\shape default
+ 
+\begin_inset Formula $H_{loc}^{m+s}(\mathbb{R}^{n})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Another point is that, on 
+\begin_inset Formula $\left(D^{-m}\tilde{H}^{s}\right)(\Omega)/P_{m-1}\subset H^{m+s}(\Omega)/P_{m-1}$
+\end_inset
+
+, the two Hilbert structures are equivalent (both of them are Hilbert subspaces
+ of 
+\begin_inset Formula $\mathfrak{D}^{\prime}\left(\Omega\right)/P_{m-1}$
+\end_inset
+
+, so apply the closed graph theorem).
+ From this one can easily deduce that 
+\begin_inset Formula $H_{\bar{\Omega}}^{-m-s}\left(\mathbb{R}^{n}\right)\cap P_{m-1}^{o}$
+\end_inset
+
+, the dual of 
+\begin_inset Formula $H^{m+s}\left(\Omega\right)/P_{m-1}^{o}$
+\end_inset
+
+, is closed in 
+\begin_inset Formula $\left(D^{-m}\tilde{H}^{s}/P_{m-1}\right)^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Existence and uniqueness
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Existence-and-uniqueness"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We begin with stating an abstract frame: let 
+\begin_inset Formula $E$
+\end_inset
+
+ be a locally convex topological vector space, 
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+ its dual, 
+\begin_inset Formula $N$
+\end_inset
+
+ a finite-dimensional (for simplicity) subspace of 
+\begin_inset Formula $E$
+\end_inset
+
+, 
+\begin_inset Formula $N^{o}$
+\end_inset
+
+ its orthogonal in 
+\begin_inset Formula $E^{\prime}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $N^{o}$
+\end_inset
+
+ is naturally identified with the dual space of 
+\begin_inset Formula $E/N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A linear subspace 
+\begin_inset Formula $X$
+\end_inset
+
+ of 
+\begin_inset Formula $E$
+\end_inset
+
+ is called a semi-Hilbert subspace of 
+\begin_inset Formula $E$
+\end_inset
+
+ with nullspace 
+\begin_inset Formula $N$
+\end_inset
+
+ if 
+\begin_inset Formula $X$
+\end_inset
+
+ is equipped with a semi-norm 
+\begin_inset Formula $\left\Vert .\right\Vert $
+\end_inset
+
+ (with nullspace 
+\begin_inset Formula $N$
+\end_inset
+
+) deriving from a 
+\begin_inset Quotes eld
+\end_inset
+
+semi-inner product
+\begin_inset Quotes erd
+\end_inset
+
+ (nonnegative bilinear form) 
+\begin_inset Formula $\left(\left(.,.\right)\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $X/N$
+\end_inset
+
+ equipped with the natural norm 
+\begin_inset Formula $\left\Vert x+N\right\Vert =\left\Vert x\right\Vert $
+\end_inset
+
+ is a Hilbert space, and inclusion 
+\begin_inset Formula $X/N\curvearrowleft E/N$
+\end_inset
+
+ is continuous.
+ Equivalently, 
+\begin_inset Formula $X/N$
+\end_inset
+
+ is a Hilbert subspace of 
+\begin_inset Formula $E/N$
+\end_inset
+
+ in the sense of 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+SCHWARTZ [IO]
+\end_layout
+
+\end_inset
+
+.
+ We know that 
+\begin_inset Formula $X/N$
+\end_inset
+
+ has a (unique) reproducing kernel in 
+\begin_inset Formula $E/N$
+\end_inset
+
+, which is a linear mapping 
+\begin_inset Formula $L$
+\end_inset
+
+ from 
+\begin_inset Formula $(E/N)^{\prime}$
+\end_inset
+
+ into 
+\begin_inset Formula $X/N$
+\end_inset
+
+, satisfying 
+\begin_inset Formula $\left(\left(y,x\right)\right)=\left\langle e^{\prime},x+N\right\rangle ,\forall x\in X,\forall y\in Le^{\prime}$
+\end_inset
+
+.
+ To be slightly simpler, we will say that a linear mapping 
+\begin_inset Formula $\theta:N^{o}\rightarrow E$
+\end_inset
+
+ is reproducing kernel of 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $E$
+\end_inset
+
+, if 
+\begin_inset Formula $\theta e^{\prime}\in Le^{\prime}\forall e^{\prime}\in N^{o}\simeq(E/N)^{\prime}$
+\end_inset
+
+.
+ Equivalently, a mapping 
+\begin_inset Formula $\theta$
+\end_inset
+
+ from 
+\begin_inset Formula $N^{o}$
+\end_inset
+
+ into 
+\begin_inset Formula $X$
+\end_inset
+
+ is a reproducing kernel of 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $E$
+\end_inset
+
+, if and only if 
+\begin_inset Formula $\left(\left(\theta e^{\prime},x\right)\right)=\left\langle e^{\prime},x\right\rangle ,\forall x\in X$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Semi-Hilbert spaces and reproducing kernels provide a simple and convenient
+ language for splines.
+ However, following theorems 2.1.
+ and 2.2.
+ could be easily deduced from 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[8], chapter 4
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Reproducing kernel of 
+\begin_inset Formula $D^{-m}\tilde{H}^{s}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Reproducing-kernel-of"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A general characterization result
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:A-general-characterization"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Examples
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Examples"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Convergence in 
+\begin_inset Formula $H^{m+s}(\Omega)$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Convergence-in"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
