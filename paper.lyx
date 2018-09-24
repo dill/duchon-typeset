@@ -2712,8 +2712,8 @@ setcounter{thm}{3}
 \end_layout
 
 \begin_layout Standard
-To be more explicit, we now use formulas giving Fourier transforms of pseudo-fla
-nctions 
+To be more explicit, we now use formulas giving Fourier transforms of pseudo-fun
+ctions 
 \begin_inset Formula $Pf.\left|\tau\right|^{\lambda}$
 \end_inset
 
