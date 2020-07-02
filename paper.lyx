@@ -106,7 +106,7 @@ Université Scientifique et Médicale, Laboratoire de Mathématiques Appliquées
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -130,9 +130,9 @@ We define a family of semi-norms
 \end_inset
 
 .
- Minimizing such semi-norms, siubject to some interpolating conditions,
- leads to function of very simple forms, providing interpolation methods
- that: 1) preserve polynomials of degree 
+ Minimizing such semi-norms, subject to some interpolating conditions, leads
+ to function of very simple forms, providing interpolation methods that:
+ 1) preserve polynomials of degree 
 \begin_inset Formula $\leq m-1$
 \end_inset
 
@@ -355,7 +355,7 @@ commute with similarities
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -376,7 +376,7 @@ Now, since Fourier transform is isometric on
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2690,7 +2690,7 @@ name "sec:A-general-characterization"
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2935,7 +2935,7 @@ data are finitely many point values
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
